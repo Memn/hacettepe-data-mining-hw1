@@ -5,8 +5,7 @@ import weka.associations.FPGrowth;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.InputStream;
 
 /**
  * Data mining Assignment-1.
@@ -14,16 +13,13 @@ import java.io.FileInputStream;
  */
 public class VoteAssociator {
 
-    private ClassLoader classLoader = VoteAssociator.class.getClassLoader();
-    private File dataFile = new File(classLoader.getResource("vote.arff").getFile());
-
     public static void main(String[] args) {
-        VoteAssociator associator = new VoteAssociator();
+        InputStream stream = VoteAssociator.class.getClassLoader().getResourceAsStream("vote.arff");
 
         // Read file
         Instances instances = null;
         try {
-            ConverterUtils.DataSource source = new ConverterUtils.DataSource(new FileInputStream(associator.dataFile));
+            ConverterUtils.DataSource source = new ConverterUtils.DataSource(stream);
             instances = source.getDataSet();
         } catch (Exception e) {
             e.printStackTrace();
