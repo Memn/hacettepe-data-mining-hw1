@@ -37,7 +37,7 @@ public class VoteAssociator {
             long endTime = System.nanoTime();
             long duration = (endTime - startTime);
             System.out.println("Apriori: " + duration / 1000000 + " ms");
-//            System.out.println(apriori.toString());
+            System.out.println(apriori.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,7 +52,7 @@ public class VoteAssociator {
 
             long duration = (endTime - startTime);
             System.out.println("FPGrowth: " + duration / 1000000 + " ms");
-//            System.out.println(fpGrowth.toString());
+            System.out.println(fpGrowth.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
